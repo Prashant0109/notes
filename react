@@ -1,0 +1,159 @@
+What is react?popular?
+
+Components based architecture
+reusable components
+copy of real dom and used virtual dom
+
+
+What is SPA
+
+Load single HTML page
+update and reders changes reflect
+
+faster load times
+better responsiveness
+smoother user interactions
+
+
+What is JSX and how does it differ from HTML?
+
+JSX is syntax extension of javascript that allows developers to write html like code directly into javascript files.
+
+
+Difference between class and functional components?
+Class components is used before the hooks and functional components used after hooks to handle state and life cycle limits
+Class components is traditional approach to use it weather using hooks functional components is modern approach and easier.
+Class components are extended React.component and state changes manage to use with this keyword to return jsx.
+Basically, functional components are stateless but after using hooks we can maintain states
+
+
+Difference between stateless and stateful ness components in react?
+Stateless components are not handle state its mainly used when we dont want pefromed any operation without states.
+Statefullness components are managed states based on user events or inteactions
+
+
+What are PROPS in react and how are they used?
+Props are basically used to transfer data between components like to from parents to child components.
+Props and state are used to control and manipulate how components behave and render.
+
+
+What are state and props?
+
+State is mutable object that stores dynamic data. Meaning it stores dynamic data
+
+Props is immutable onject
+
+What are controlled and uncontrolled components?
+Controlled components is used when we required control over data which is entered by the users such like form validation.
+Uncontrolled compoents is used when there is no need to dynamically inspect the users inputs in this case server is evauluating this.
+
+
+What is purpose of key attribute in React lists?
+It use to render element which we wanted to render, react recognized it.
+
+
+Fragments?
+<> </>
+this is like fragments it use when we dont want to add extra containers. avoid unnecessary wrapper element.
+
+
+What is Virtual DOM?
+In the page we are having basically two dom's Original dom and virtual dom.
+When we are updating original dom in that case all dom is getting check and update which is take times.
+in virtual dom it detect which element is getting changes and particular that element is updating with original dom it saves time.
+
+What is React lifecycle methods?
+React lifecycle methods are special functions that provides granual level control to developer to hook into specific in components life cycles.
+Mounting :
+-constructor, getDerivedStatefromProps, render, ComponentDidMount
+Updating :
+- getDerivedStateFromProps,shouldComponentsUpdate,render,snapshotBeforeUpdate,componentDidUpdate
+Unmounting:
+-componentWillUnmount
+
+
+
+Explain useState and useEffect hooks with examples?
+useState is used to store the storedData and loading state
+useEffect is used to fetched data when component is mount
+/// Interval increment/decrement code
+
+import "./styles.css";
+import React, { useState, useEffect } from "react";
+
+const counter = () => {
+  const [counter, setCounter] = useState(0);
+
+  const increment = () => setCounter(counter + 1);
+  const decrement = () => setCounter(counter - 1);
+
+  return (
+    <div className="Counter">
+      <h1>Hello CodeSandboxdd {counter}</h1>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+    </div>
+  );
+};
+export default counter;
+
+
+///Timer code
+import React, { useState, useEffect } from "react";
+
+const timer = () => {
+  const [second, setSecond] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSecond((prev) => prev + 1);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div class="timer">
+      <h3>{second}</h3>
+    </div>
+  );
+};
+export default timer;
+
+
+
+What is props drilling?
+Props drilling is when data need to passed down from many layers of components.
+eg, when one parent components is need to passed down data to great parent or nested components then in this case we need to keep passing those components also when its not needed.
+
+
+What is context API?
+Context api in react is features that allow us to manage component data and states at global level where all components can access from component tree, without needing to pass props manually to every level.
+
+
+What is Higher order components?
+Its is a function that takes components as input and return new components with additional functionality or modified behavior
+
+
+What is reconciliation?
+- InitialRender,state or prop change,Difing,
+Update the DOM, Commit Phase
+
+How do react portals works?
+In react, portal is way to render a components children into different part of the DOM outside the parent components hierarchy, while maintaining the react component structure.
+
+
+How does react router handle navigation?
+It handle navigation between different views or pages without the need to reload entire page
+
+What is React strict mode?
+Helps developer to identify potential problems in an application by intentionally invoking certain warnings and behavior in the application.
+
+
+
+
+
+
+
+
+
+
