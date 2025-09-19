@@ -39,7 +39,7 @@ print(find)
 
 
 # Convert to List to Dict
-# Condition both lenth should be match
+ (Condition both lenth should be match)
 def list_string(l1,l2):
     return dict(zip(l1,l2))
     
