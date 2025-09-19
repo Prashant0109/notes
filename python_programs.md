@@ -10,7 +10,7 @@ for i in str:
 print(rev)
 
 ----------------------------------
-#Find common letters
+# Find common letters
 def find_common_letters(str1, str2):
     return sorted([char for char in set(str1.lower()) if char in str2.lower()]) 
 
