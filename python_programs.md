@@ -1,4 +1,4 @@
-Reverse String program
+*Reverse String program
 
 str = 'prashant'
 rev = ""
