@@ -37,6 +37,7 @@ dd = 'aasssfvv'
 find = count_freq(dd)
 print(find)
 
+-----------------------------------------------------------------
 
 # Convert to List to Dict
  (Condition both lenth should be match)
@@ -48,3 +49,43 @@ dd2 = [44,55,33,22]
 find = list_string(dd,dd2)
 print(find)
 
+-------------------------------------------------------------
+# Find missing number from array
+def find_missing_no(no):
+    no_len = len(no) +1
+    
+    excepted = 0
+    for i in range(1,no_len +1):
+        excepted ^=i
+    
+    actual = 0
+    for d in no:
+        actual ^=d
+
+    return excepted ^ actual
+    
+
+no = [1,2,4,5,6]
+res = find_missing_no(no)
+print(res)
+
+---------------------------------------------------------------
+# Find array sum with target value in array
+
+def find_target_sum(arr,target_sum):
+    seen = set()
+    pairs = []
+    
+    for n in arr:
+        sum = target_sum - n
+        if sum in seen:
+            #seen.add(n)
+            pairs.append((min(n,sum),max(n,sum)))
+        else :
+            seen.add(n)
+    return pairs
+
+
+dd = [1,2,4,3,5]
+res = find_target_sum(dd,7)
+print(res)
