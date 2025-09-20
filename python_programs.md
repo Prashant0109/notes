@@ -140,3 +140,16 @@ def factorial(n):
             result *= i
         return result  
 print(factorial(5))  # Output: 120
+
+---------------------------------------------------------
+
+# python function check if a year is a leap year
+def is_leap_year(year):
+    if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+        return True
+    else:
+        return False
+print(is_leap_year(2020))  # Output: True
+print(is_leap_year(1900))  # Output: False
+print(is_leap_year(2000))  # Output: True
+
