@@ -89,3 +89,40 @@ def find_target_sum(arr,target_sum):
 dd = [1,2,4,3,5]
 res = find_target_sum(dd,7)
 print(res)
+
+--------------------------------------------------------------------
+# @property decorator with getter,setter and deleter example
+class Person:
+    def __init__(self, name):
+        self._name = name  # Protected attribute (convention with underscore)
+
+    @property
+    def name(self):
+        print("Getting name")
+        return self._name
+
+    @name.setter
+    def name(self, value):
+        print("Setting name")
+        if not isinstance(value, str) or not value.strip():
+            raise ValueError("Name must be a non-empty string")
+        self._name = value.strip()
+
+    @name.deleter
+    def name(self):
+        print("Deleting name")
+        self._name = None
+
+  Example usage
+person = Person("Alice")
+print(person.name)  # Getting name, prints: Alice
+person.name = "Bob"  # Setting name
+print(person.name)  # Getting name, prints: Bob
+del person.name  # Deleting name
+print(person.name)  # Getting name, prints: None
+
+  Invalid input
+try:
+    person.name = ""  # Raises ValueError
+except ValueError as e:
+    print(e)  # Name must be a non-empty string
