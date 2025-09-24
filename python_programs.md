@@ -204,8 +204,22 @@ try:
 except:
     print('Error')
 
+# cube of even no. for square **2 change only
+a = [1,2,3,4,5,6,7]
+squares = [ num **3 if num % 2 == 0 else num for num in a ]
+print(squares)
 
+# cube with generator
 
+a = [1,2,3,4,5,6,7,8]
 
+sq = (x**3 for x in a)
+for i in sq:
+    print(i)
 
+lambda_generator = (lambda x: x * x for x in range(5))
+
+# To get the results, you'd then call each lambda function
+for func in lambda_generator:
+    print(func(2))
 
