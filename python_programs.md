@@ -180,3 +180,32 @@ else:
     print(f"Element {target} is not present in array")
 
 
+# Replicate string character A3B2c4 -> AAABBcccc
+def decode_string(str):
+    result = ""
+    i = 0
+    while i < len(str):
+        letter = str[i]
+        i +=1
+        num = ""
+        while i < len(str) and str[i].isdigit():
+            num +=str[i]
+            i +=1
+        count = int(num) if num else 1
+        result += letter * count
+    return result
+    
+    
+
+try:
+    inputstr = 'A3b2c4'
+    resp = decode_string(inputstr)
+    print(resp)
+except:
+    print('Error')
+
+
+
+
+
+
