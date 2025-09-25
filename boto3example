@@ -1,0 +1,47 @@
+import simplejson as json  // Imported to accept post data into json
+import boto3 // importe to access aws resources
+import os  // imported to access environ variable
+from boto3.dynamodb.conditions import Key // imported to apply filters on dynamodb
+
+dynamodb = boto3.resource('dynamodb') // access dynamodb resource
+table_name = os.environ.get('CUSTOMER_TABLE') // get customer_table
+
+def handler_lambda(event,context):
+    table = dynamodb.Table(table_name)  // load table
+    customer_id = int(event['pathParameters']['id'])   // convert body pathParameters id to int
+    response = table.query(KeyConditionExpression=Key('id').eq(customer_id)) // .query to apply condition to table 
+    
+    return {
+        'statusCode':200,
+        'headers':{},
+        'body':json.dumps(response['Items'])
+    }
+
+
+
+import json
+import os
+import boto3
+
+dynamodb = boto3.resource('dynamodb')
+table_name = os.environ.get('CUSTOMER_TABLE')
+
+def handler_lambda(event,context):
+    customer = json.loads(event['body'])
+    table = dynamodb.Table(table_name)
+    try:
+        response = table.put_item(TableName=table_name,Item=customer) // save item table json
+        print("PutItem successful:", response)
+    except dynamodb.meta.client.exceptions.ResourceNotFoundException:
+        print("Error: The specified table was not found or is not active.")
+    except Exception as e:
+        print("An unexpected error occurred:", e)
+    
+    #response = table.put_item(TableName=table_name,Item=order)
+    #print(response)
+    return {
+        "statusCode":201,
+        "headers":{},
+        "body":json.dumps({'message':"customer created"})
+    }
+    
