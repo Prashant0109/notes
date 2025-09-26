@@ -258,3 +258,14 @@ target = 5
 out = binary_search(arr,target)
 print(out)
 
+# find common char from string
+find_common = lambda s1,s2 : ''.join( sorted( set(s1.lower()) & set(s2.lower()) ))
+    
+
+
+
+str1 = 'asDad'
+str2 = 'cxcvxAcvsD'
+out = find_common(str1,str2)
+print(out)
+
