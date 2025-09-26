@@ -269,3 +269,8 @@ str2 = 'cxcvxAcvsD'
 out = find_common(str1,str2)
 print(out)
 
+# Duplicate character in string
+multiplechar = lambda str : ''.join(set(c for c in str if str.count(c) > 1 ) )
+ss = 'asdas'
+out = multiplechar(ss)
+print(out)
