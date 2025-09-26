@@ -1,3 +1,14 @@
+# Fibonaci no
+def fibonaci(no):
+    a,b = 0,1
+    
+    for _ in range(no):
+        yield a
+        a,b = b,a+b
+
+for num in fibonaci(10):
+    print(num, end = " ")
+
 # Reverse String program
 
 str = 'prashant'
