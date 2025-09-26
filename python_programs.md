@@ -223,3 +223,38 @@ lambda_generator = (lambda x: x * x for x in range(5))
 for func in lambda_generator:
     print(func(2))
 
+# duplicate character A2b3c4 -> AAbbbcccc
+def duplicateChar(str):
+    result = ''
+    for c,n in zip(str[::2],str[1::2]):
+        result += ''.join( c * int(n) )
+    return result
+    
+
+str = 'A3B2c4d2'    
+out = duplicateChar(str)
+#print(out)
+
+dd = lambda s : ''.join(c * int(n) for c, n in zip(str[::2], str[1::2])) 
+s = dd(str)
+print(s)
+
+# binary search
+def binary_search(arr, target):
+    left, right = 0, len(arr)-1
+    while left <= right:
+        mid = (left + right) //2 
+        if arr[mid] == target:
+            print(f"{target} found at {mid}" )
+            return True
+        elif arr[mid] > target:
+            right = mid -1
+        elif arr[mid] < target:
+            left = mid +1
+    return -1
+    
+arr = [1,2,3,4,5,6,7]
+target = 5
+out = binary_search(arr,target)
+print(out)
+
